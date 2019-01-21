@@ -24,12 +24,12 @@ public class Test {
 		//发件人密码
 		String senderPassword = "123321";
 		//发送主机
-		String host = "192.168.56.1";
+		String host = "zwt.com";
 		
 		Properties properties = System.getProperties();
 		
 		properties.setProperty("mail.smtp.auth", "true");//设置用户的认证方式
-		properties.setProperty("mail.transport.protocol", "smtp");//设置传输协议
+		properties.setProperty("mail.transport.protocol", "smtps");//设置传输协议
 		properties.setProperty("mail.smtp.port", "25"); 		// 设置smtp端口 
 //		properties.setProperty("mail.smtp.host", host);
 		properties.setProperty("mail.smtp.host", host);			//设置发件人的SMTP服务器地址

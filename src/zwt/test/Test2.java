@@ -22,12 +22,13 @@ import javax.mail.internet.MimeMultipart;
 import com.sun.mail.util.MailSSLSocketFactory;
 
 public class Test2 {
-	public static void main(String[] args) throws GeneralSecurityException {
+	public static void main(String[] args){
+		
 		String sender = "test@zwt.com";
 		String password = "123321";
 		String smtpServer = "zwt.com";
-		//String recipient = "2598283973@qq.com";
-		String recipient = "zjj@zwt.com";
+		String recipient = "2598283973@qq.com";
+		//String recipient = "zjj@zwt.com";
 		String subject = "测试邮件主题";
 		String fileAttachment = "";//附件
 		String content = "Hi!Waite,z-elsa L ZJJ";
@@ -37,17 +38,25 @@ public class Test2 {
 		proper.put("mail.smtp.host", smtpServer);		// smtp服务器       
         proper.put("mail.smtp.auth", "true"); 			// 是否smtp认证       
         proper.put("mail.smtp.port", "25"); 			// 设置smtp端口       
-        proper.put("mail.transport.protocol", "smtp"); 	// 发邮件协议       
+        proper.put("mail.transport.protocol", "smtps"); 	// 发邮件协议       
         proper.put("mail.store.protocol", "pop3"); 		// 收邮件协议
        //SSL
-//        proper.put("mail.smtp.ssl.enable", "true"); // 设置是否使用ssl安全连接 ---一般都使用
-//        proper.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory"); 
-//        proper.setProperty("mail.smtp.socketFactory.fallback", "false");
-         
-//        MailSSLSocketFactory sf = new MailSSLSocketFactory();  
-//        sf.setTrustAllHosts(true);  
-//        proper.put("mail.smtp.ssl.enable", "true");  
-//        proper.put("mail.smtp.ssl.socketFactory", sf);
+        proper.put("mail.smtp.ssl.enable", "true"); // 设置是否使用ssl安全连接 ---一般都使用
+        proper.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory"); 
+        MailSSLSocketFactory sf = null;
+        try {
+			sf = new MailSSLSocketFactory();
+		} catch (GeneralSecurityException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}  
+        sf.setTrustAllHosts(true);  
+        proper.put("mail.smtp.ssl.enable", "true");  
+        proper.put("mail.smtp.ssl.socketFactory", sf);
+        
+        
+//        proper.put("mail.smtp.socketFactory.fallback", "false");
+//        proper.put("mail.smtp.socketFactory.port",  "25");
 //        
 //        proper.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 //        proper.put("mail.smtp.localhost", "localhost"); 

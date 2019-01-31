@@ -31,6 +31,7 @@ public class LoginAction extends ActionSupport{
 		System.out.println(username+" !!! "+password);
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
+		
 		Subject subject = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(username,password);
 		try {

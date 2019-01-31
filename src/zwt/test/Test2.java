@@ -25,10 +25,11 @@ public class Test2 {
 	public static void main(String[] args){
 		
 		String sender = "test@zwt.com";
-		String password = "123321";
+		String password = "123";
 		String smtpServer = "zwt.com";
-		String recipient = "2598283973@qq.com";
+		String recipient = "2598283973@mail.qq.com";
 		//String recipient = "zjj@zwt.com";
+		//String subject = "Hello ZJJ,How are you?";
 		String subject = "测试邮件主题";
 		String fileAttachment = "";//附件
 		String content = "Hi!Waite,z-elsa L ZJJ";

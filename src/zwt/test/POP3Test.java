@@ -13,7 +13,7 @@ public class POP3Test {
 	public static void main(String[] args) {
 		String host = "zwt.com";
 		String username = "zjj@zwt.com";
-		String password = "123321";
+		String password = "123";
 		//ÅäÖÃ·şÎñÆ÷
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "localhost");//

@@ -15,5 +15,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mail/activation-1.1.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mail/mail-1.4.7.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xml/xwork-core-2.3.37.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

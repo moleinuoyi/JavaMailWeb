@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<link type="text/css" rel="stylesheet" href="css/components.css" />
+	<link type="text/css" rel="stylesheet" href="css/custom.css" />
+<!-- end of global styles-->
+
+	<link type="text/css" rel="stylesheet" href="plugins/fullcalendar/css/fullcalendar.min.css"/>
+    <link type="text/css" rel="stylesheet" href="plugins/toastr/css/toastr.min.css"/>
+	
+	<link type="text/css" rel="stylesheet" href="css/calendar_custom.css"/>
+	<!-- style="background-color:#f3f3f4;" -->
+</head>
+<body class="body">
+	<div id="wrap">
+		<div class="wrapper">
+			<div id="content" class="bg-container" style="background-color:#f3f3f4;">
+				<div class="outer">
+					<div class="inner bg-light lter bg-container cal_btn_hov" style="background-color:#f3f3f4;">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="card">
+									<div class="card-header">
+	                                  	 可拖动事件
+	                                    <div class="float-right">
+	                                        <a href="#" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal">
+	                                            <i class="fa fa-plus"></i>
+	                                        </a>
+	                                    </div>
+	                                </div>
+	                                <div class="card-block m-t-35">
+	                                    <div id='external-events'>
+	                                        <div class='external-event bg-warning'>请添加您的事件 <i class="fa fa-times event-clear" aria-hidden="true"></i></div>
+	                                        <p class="well no-border no-radius">
+	                                            <label class="custom-control custom-checkbox">
+	                                                <input type="checkbox" class="custom-control-input" id='drop-remove'>
+	                                                <span class="custom-control-indicator"></span>
+	                                                <span class="custom-control-description">放下后移除</span>
+	                                            </label>
+	                                        </p>
+	                                    </div>
+	                                </div>
+	                                <div class="card-footer">
+	                                    <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#myModal">创建事件</a>
+	                                </div>
+								</div>
+							</div>
+							<div class="col-lg-9 media_max_991">
+	                            <div class="card">
+	                                <div class="card-block m-t-35">
+	                                    <div id="calendar"></div>
+	                                </div>
+	                            </div>
+	                        </div>
+						</div>	
+						<br /> <br />
+						<!--  -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title" id="myModalLabel1">
+	                                        <i class="fa fa-plus"></i>
+	                                        Create Event
+	                                    </h4>
+	                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									</div>
+									<div class="modal-body">
+										<div class="input-group">
+											<input type="text" id="new-event" class="form-control" placeholder="Event">
+											<div class="input-group-btn">
+												<button type="button" class="color-chooser-btn btn btn-default text-white dropdown-toggle" data-toggle="dropdown">
+	                                                Default
+	                                            </button>
+											
+												<div class="dropdown-menu float-right cal_modal_type color-chooser">
+													<a class="color_primary text-center text-white dropdown-item" href="#">
+	                                                    Primary
+	                                                </a>
+	                                                <a class="color_success text-center text-white dropdown-item" href="#">
+	                                                    Success
+	                                                </a>
+	                                                <a class="color_info text-center text-white dropdown-item" href="#">
+	                                                    Info
+	                                                </a>
+	                                                <a class="color_warning text-center text-white dropdown-item" href="#">
+	                                                    warning
+	                                                </a>
+	                                                <a class="color_danger text-center text-white dropdown-item" href="#">
+	                                                    Danger
+	                                                </a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+	                                    <button type="button" class="btn btn-danger float-right" data-dismiss="modal">
+	                                                                                                          关闭<i class="fa fa-times"></i>
+	                                    </button>
+	                                    <button type="button" class="btn btn-success pull-left" id="add-new-event" data-dismiss="modal">
+	                                                                                                         添加<i class="fa fa-plus"></i>
+	                                    </button>
+	                                </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="evt_modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            	<h4 class="modal-title" id="myModalLabel">
+	                    <i class="fa fa-plus"></i>
+	                    Edit Event
+	                </h4>
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	            </div>
+	            <div class="modal-body">
+	                <div class="input-group">
+	                    <input type="text" id="event_title" class="form-control" placeholder="Event">
+	                    <div class="input-group-btn">
+	                        <button type="button" class="btn btn-default text-white dropdown-toggle color-chooser-btn" data-toggle="dropdown">
+	                            Default
+	                            <span class="caret"></span>
+	                        </button>
+	                        <div class="dropdown-menu float-right cal_modal_type color-chooser">
+	                            <a class="color_primary text-center dropdown-item text-white" href="#">
+	                                Primary
+	                            </a>
+	                            <a class="color_success text-center dropdown-item text-white" href="#">
+	                                Success
+	                            </a>
+	                            <a class="color_info text-center dropdown-item text-white" href="#">
+	                                Info
+	                            </a>
+	                            <a class="color_warning text-center dropdown-item text-white" href="#">
+	                                warning
+	                            </a>
+	                            <a class="color_danger text-center dropdown-item text-white" href="#">
+	                                Danger
+	                            </a>
+	                        </div>
+	                    </div>
+	                    <!-- /btn-group -->
+	                </div>
+	                <!-- /input-group -->
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-primary float-right" data-dismiss="modal">
+	                                                     关闭
+	                    <i class="fa fa-times"></i>
+	                </button>
+	                <button type="button" class="btn btn-success pull-left text_save" data-dismiss="modal">
+	                                                     更新
+	                </button>
+	                <button type="button" class="btn btn-danger pull-left text_delete" data-dismiss="modal">
+	                   	删除
+	                </button>
+	            </div>
+	        </div>
+	   	</div>
+	</div>
+	
+	<script type="text/javascript" src="js/components.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<!--End of Global scripts-->
+	<!--Plugin scripts-->
+	<script type="text/javascript" src="plugins/moment/js/moment.min.js"></script>
+	<script type="text/javascript" src="plugins/fullcalendar/js/fullcalendar.min.js"></script>
+	<!-- end of plugin scripts -->
+	<script type="text/javascript" src="js/calendarcustom.js" ></script>
+	<script type="text/javascript" src="js/calendar.js"></script>
+
+</body>
+</html>

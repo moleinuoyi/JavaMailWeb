@@ -1,1 +1,8 @@
 moleinuoyi     test
+shiro支持
+Web支持
+缓存支持
+并发支持
+测试支持
+Run As支持
+Remember Me支持

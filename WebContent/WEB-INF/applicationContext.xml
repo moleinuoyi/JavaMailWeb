@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ 	       http://www.springframework.org/schema/beans/spring-beans.xsd
+ 	       http://www.springframework.org/schema/context 
+ 	       http://www.springframework.org/schema/context/spring-context.xsd
+ 	       http://www.springframework.org/schema/tx 
+ 	       http://www.springframework.org/schema/tx/spring-tx.xsd
+ 	       http://www.springframework.org/schema/aop 
+ 	      http://www.springframework.org/schema/aop/spring-aop.xsd">
+ 	 <!-- 
+ 	<bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
+		<property name="url"
+			value="jdbc:sqlserver://localhost:1433;databaseName=BlogDB"></property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="123456"></property>
+	</bean>
+ 	  -->    
+	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+ 		<property name="driverClass" value="com.mysql.cj.jdbc.Driver"></property>
+ 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/javamailweb?serverTimezone=GMT"></property>
+ 		<property name="user" value="root"></property>
+ 		<property name="password" value="root"></property>
+ 	</bean>
+	<!-- 
+	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
+		<property name="jdbcUrl"
+			value="jdbc:sqlserver://localhost:1433;databaseName=BlogDB"></property>
+		<property name="user" value="sa"></property>
+		<property name="password" value="123456"></property>
+	</bean>
+	 -->
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop> 
+                <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>  
+                <prop key="hibernate.net.sf.ehcache.configurationResourceName">classpath:ehcache.xml</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/zwt/modle/User.hbm.xml</value>
+				<value>com/zwt/modle/Role.hbm.xml</value>
+				<value>com/zwt/modle/Permission.hbm.xml</value>
+			</list>
+		</property> 
+	</bean>
+	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+ 	 	 <tx:attributes>
+ 	 	 	<tx:method name="*" propagation="REQUIRED" rollback-for="Exception" read-only="false"/>
+ 	 	 </tx:attributes>
+ 	 </tx:advice>
+ 	 -->
+ 	  <!-- AOP配置 -->
+ 	 <!-- 
+ 	 <aop:config>
+ 	  	<aop:pointcut expression="execution(* com.zwt..*.*(..))" id="myPoincut"/>
+ 	 	<aop:advisor advice-ref="txAdvice" pointcut-ref="myPoincut"/>
+ 	 </aop:config>
+	 -->
+	
+	<bean id="UserDAO" class="com.zwt.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/> 
+	</bean>
+	<!-- 
+	<bean id="UserService" class="com.zwt.service.impl.UserServiceImpl">
+		<property name="userDAO">
+			<ref bean="UserDAO"/>
+		</property>
+	</bean>
+	 -->
+	
+	<!-- 配置Action -->
+	<bean id="loginAction" class="com.zwt.controler.LoginAction">
+		
+	</bean>
+	
+</beans>

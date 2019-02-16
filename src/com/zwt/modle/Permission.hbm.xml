@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zwt.modle.Permission" table="t_permission">
+		<id name="id" column="id"><!-- 单一主键 -->
+			<generator class="native" />
+		</id>
+		
+		<property name="permissionName" column="permissionName"/>
+		<property name="roleId" column="roleId"/>
+		
+	</class>
+</hibernate-mapping>

@@ -11,7 +11,7 @@
 	
 	<package name="default" extends="struts-default" namespace="/*">
 		
-		<action name="login" class="com.zwt.controler.LoginAction" method="execute">
+		<action name="login" class="loginAction" method="execute">
 			<result name="success">/index.jsp</result>
 			<result name="error">/login.jsp</result>
 		</action>

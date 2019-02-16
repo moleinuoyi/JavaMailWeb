@@ -4,6 +4,7 @@ public class User {
 	private Integer id;
 	private String username;
 	private String password;
+	private String roleId;
 	public String getUsername() {
 		return username;
 	}
@@ -22,5 +23,12 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
+	
 	
 }

@@ -9,6 +9,7 @@ import org.apache.shiro.subject.Subject;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.zwt.util.CryptographyUtil;
 
 public class LoginAction extends ActionSupport{
 
@@ -33,8 +34,13 @@ public class LoginAction extends ActionSupport{
 		HttpSession session = request.getSession();
 		
 		Subject subject = SecurityUtils.getSubject();
-		UsernamePasswordToken token = new UsernamePasswordToken(username,password);
+		UsernamePasswordToken token = new UsernamePasswordToken(username,CryptographyUtil.md5(password, "zwt.com"));
 		try {
+			if(subject.isRemembered()) {
+				System.out.println("isRememberMe");
+			}else {
+				token.setRememberMe(true);
+			}
 			subject.login(token);
 		}catch(Exception e) {
 			e.printStackTrace();

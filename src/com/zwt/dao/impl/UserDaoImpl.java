@@ -7,10 +7,12 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+
 import com.zwt.dao.UserDao;
 import com.zwt.modle.User;
 
-public class UserDaoImpl extends UserDao{
+public class UserDaoImpl extends HibernateDaoSupport{
 	public User getByUserName(Connection con,String userName) throws SQLException {
 		User resultUser = null;
 		String sql = "select * from t_user where userNamer=?";

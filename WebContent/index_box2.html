@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<!--global styles-->
+	    <link type="text/css" rel="stylesheet" href="css/components.css" />
+	    <link type="text/css" rel="stylesheet" href="css/custom.css" />
+	    <!-- end of global styles-->
+	    
+	    
+    	<link type="text/css" rel="stylesheet" href="#" id="skin_change"/>
+	    <link type="text/css" rel="stylesheet" href="plugins/toastr/css/toastr.min.css"/>
+	    <!-- 
+	    <link type="text/css" rel="stylesheet" href="plugins/c3/css/c3.min.css"/>
+	    弹出信息列表
+	    <link type="text/css" rel="stylesheet" href="plugins/switchery/css/switchery.min.css"/>
+	    <link type="text/css" rel="stylesheet" href="css/timeline2.css"/>
+	     -->
+	     
+	     
+	    <link type="text/css" rel="stylesheet" href="plugins/jasny-bootstrap/css/jasny-bootstrap.min.css"/>
+	     
+	     
+		<!-- 
+	    <link type="text/css" rel="stylesheet" href="css/gallery.css"/>
+		 -->
+    	<link type="text/css" rel="stylesheet" href="plugins/fullcalendar/css/fullcalendar.min.css"/>
+    	
+	    <link type="text/css" rel="stylesheet" href="css/profile.css"/>
+	    <link type="text/css" rel="stylesheet" href="css/calendar_custom.css"/>
+	    <link type="text/css" rel="stylesheet" href="css/new_dashboard.css"/>
+	</head>
+	<body class="body">
+		
+		<div id="wrap">
+			<div class="wrapper">
+				<div id="content" class="bg-container">
+					<div class="outer">
+						<div class="inner bg-container">
+							<div class="row">
+								<!-- 左半边 -->
+								<div class="col-xl-6 col-lg-7 col-md-12">
+									<div class="row">
+										<!-- 购物车 -->
+										<div class="col-sm-6 col-12">
+											<div class="bg-primary top_cards">
+												<div class="row icon_margin_left">
+													<div class="col-5 icon_padd_left">
+														<div class="float-left">
+															<span class="fa-stack fa-sm">
+		                                                        <i class="fa fa-circle fa-stack-2x"></i>
+		                                                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse text-primary sales_hover"></i>
+		                                                    </span>
+														</div>
+													</div>
+													<div class="col-7 icon_padd_right">
+		                                                <div class="float-right cards_content">
+		                                                    <span class="number_val" id="sales_count">850</span>
+		                                                    <i class="fa fa-long-arrow-up fa-2x"></i><br/>
+		                                                    <span class="card_description">Sales</span>
+		                                                </div>
+                                            		</div>
+												</div>
+											</div>
+										</div>
+										<!-- 眼睛 -->
+										<div class="col-sm-6 col-12">
+											<div class="bg-success top_cards">
+												<div class="row icon_margin_left">
+													<div class="col-5 icon_padd_left">
+														<div class="float-left">
+															<span class="fa-stack fa-sm">
+		                                                        <i class="fa fa-circle fa-stack-2x"></i>
+		                                                        <i class="fa fa-eye fa-stack-1x fa-inverse text-success sales_hover"></i>
+		                                                    </span>
+														</div>
+													</div>
+													<div class="col-7 icon_padd_right">
+		                                                <div class="float-right cards_content">
+		                                                    <span class="number_val" id="sales_count">1,700</span>
+		                                                    <i class="fa fa-long-arrow-up fa-2x"></i><br/>
+		                                                    <span class="card_description">Visitors</span>
+		                                                </div>
+                                            		</div>
+												</div>
+											</div>
+										</div>
+										<!-- 钱啊 -->
+										<div class="col-sm-6 col-12">
+											<div class="bg-warning top_cards">
+												<div class="row icon_margin_left">
+													<div class="col-5 icon_padd_left">
+														<div class="float-left">
+															<span class="fa-stack fa-sm">
+		                                                        <i class="fa fa-circle fa-stack-2x"></i>
+		                                                        <i class="fa fa-usd fa-stack-1x fa-inverse text-warning sales_hover"></i>
+		                                                    </span>
+														</div>
+													</div>
+													<div class="col-7 icon_padd_right">
+		                                                <div class="float-right cards_content">
+		                                                    <span class="number_val" id="sales_count">1,200</span>
+		                                                    <i class="fa fa-long-arrow-up fa-2x"></i><br/>
+		                                                    <span class="card_description">Revenue</span>
+		                                                </div>
+                                            		</div>
+												</div>
+											</div>
+										</div>
+										<!-- 人群 -->
+										<div class="col-sm-6 col-12">
+											<div class="bg-mint top_cards">
+												<div class="row icon_margin_left">
+													<div class="col-5 icon_padd_left">
+														<div class="float-left">
+															<span class="fa-stack fa-sm">
+		                                                        <i class="fa fa-circle fa-stack-2x"></i>
+		                                                        <i class="fa fa-users fa-stack-1x fa-inverse text-mint sales_hover"></i>
+		                                                    </span>
+														</div>
+													</div>
+													<div class="col-7 icon_padd_right">
+		                                                <div class="float-right cards_content">
+		                                                    <span class="number_val" id="sales_count">1,020</span>
+		                                                    <i class="fa fa-long-arrow-up fa-2x"></i><br/>
+		                                                    <span class="card_description">Subscribers</span>
+		                                                </div>
+                                            		</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 右半边天气 -->
+								<div class="col-xl-6 col-lg-5 col-12 stat_align">
+									<div class="card weather_section md_align_section">
+										<div class="card-block">
+                                    		<!-- 
+                                    		<div class="row margin_align">
+                                        		<div class="col-12">
+                                    		 -->
+                                        			<div class="row margin_align">
+                                        				<div class="col-6">
+		                                                    <div class="icon sun-shower">
+		                                                        <div class="cloud"></div>
+		                                                        <div class="sun">
+		                                                            <div class="rays"></div>
+		                                                        </div>
+		                                                        <div class="rain"></div>	                                                    
+		                                                    </div>
+		                                                </div>
+		                                                <div class="col-6">
+		                                                    <div class="weather-value">
+		                                                        <span class=" text-white"><span class="degree">17&deg;~23&deg;</span>
+		                                                        </span>
+		                                                    </div>
+		                                                    <div class="weather_location">
+		                                                        <span class="text-white"><i class="fa fa-map-marker"></i>深圳</span>
+		                                                    </div>
+		                                                </div>
+                                        			</div>
+                                        			<!-- 周一到周四 -->
+                                        			<div class="row weekly_report">
+                                        				<div class="col-3">
+		                                                    <span>Mon</span>
+		                                                    <br/>
+		                                                    <img src="images/w1.png" alt="weather">
+		                                                    <p>17&deg;~27&deg;</p>
+		                                                </div>
+		                                                <div class="col-3">
+		                                                    <span>Tue</span>
+		                                                    <br/>
+		                                                    <img src="images/w2.png" alt="weather">
+		                                                    <p>17&deg;~23&deg;</p>
+		                                                </div>
+		                                                <div class="col-3">
+		                                                    <span>Wed</span>
+		                                                    <br/>
+		                                                    <img src="images/w3.png" alt="weather">
+		                                                    <p>17&deg;~19&deg;</p>
+		                                                </div>
+		                                                <div class="col-3">
+		                                                    <span>Thu</span>
+		                                                    <br/>
+		                                                    <img src="images/w5.png" alt="weather">
+		                                                    <p>17&deg;~28&deg;</p>
+		                                                </div>
+                                        			</div>
+                                        		<!-- 
+                                        		11</div>
+                                        	111</div>
+                                        		 -->
+                                        </div>
+									</div>
+								</div>
+								<!-- 右半边天气end -->
+							</div>
+							<!-- 第一行end -->
+							<!-- 第二行 -->
+							<div class="row">
+								<!-- 记事本 -->
+								<!-- 要做清单 -->
+								<div class="col-md-5">
+								<div id="area-chart" class="flotChart3" style="display:none;"></div>
+	                            <div id="realtime" class="flotChart4 " style="display:none;"></div>
+	                            	<div class="card to_do" style="margin-top:20px">
+	                            	    <div class="card-header bg-white">
+	                                        To Do List
+	                                    </div>
+	                                    <div class="card-block no-padding to_do_section">
+	                                        <div class="row">
+	                                            <div class="todo_section">
+	                                                <form class="list_of_items">
+	                                                    <div class="todolist_list showactions px-3">
+	                                                        <div class="row">
+	                                                            <div class="col-9 nopad custom_textbox1">
+	                                                                <div class="todo_primarybadge"></div>
+	                                                                <div class="todoitemcheck">
+	                                                                    <input type="checkbox" class="striked"/>
+	                                                                </div>
+	                                                                <div class="todotext todoitem todo_width">Renewal Domain</div>
+	                                                            </div>
+	                                                            <div class="col-3  float-right showbtns todoitembtns">
+	                            	                              	<a href="#" class="todoedit">
+	                                                                    <span class="fa fa-pencil"></span>
+	                                                                </a>
+	                                                                <span class='dividor'>|</span>
+	                                                                <a href="#" class="tododelete redcolor">
+	                                                                    <span class="fa fa-trash"></span>
+	                                                                </a>
+	                                                            </div>
+	                                                            <span class="seperator"></span>
+	                                                        </div>
+	                                                    </div>
+	                                                </form>
+	                                            </div>
+	                                            <form id="main_input_box" class="form-inline">
+	                                                <div class="input-group todo">
+	                                                        <span class="input-group-btn">
+	                                            	           	<a class="btn btn-primary" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-contentwrapper=".mycontent" id="btn_color" data-badge="todo_mintbadge">
+	                                                           		Color&nbsp;&nbsp;
+	                                                           		<i class="fa fa-caret-right"> </i>
+	                                                           	</a>
+	                                                        </span>
+	                                                    <input id="custom_textbox" name="Item" type="text" required
+	                                                           placeholder="Write and hit enter"
+	                                                           class="input-md form-control" size="75"/>
+	                                                </div>
+	                                            </form>
+	                                        </div>
+	                                        <div class="mycontent">
+	                                            <div class="border_color bg-danger border_danger"
+	                                                 data-color="btn-danger" data-badge="bg-danger"></div>
+	                                            <div class="border_color bg-primary border_primary"
+	                                                 data-color="btn-primary" data-badge="bg-primary"></div>
+	                                            <div class="border_color bg-info border_info" data-color="btn-info"
+	                                                 data-badge="bg-info"></div>
+	                                            <div class="border_color bg-mint border_mint" data-color="btn-mint"
+	                                                 data-badge="bg-mint"></div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+								<!-- 要做清单 -->
+								<div class="col-md-3">
+									<div class="block widget-notes">
+                                        <div class="card" id="notes_section">
+                                            <div class="card-header bg-white">
+                                                Notes
+                                            </div>
+                                            <div class="content">
+                                                <div class="notes" contenteditable="true">
+                                                    <div>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+								</div><!-- 记事本 -->
+								
+							</div><!-- 第二行end -->
+							<!-- 第三行 -->
+							
+							<div class="row">
+								<!-- 日历 -->
+								<div class="col-md-6">
+									<div class="card-block m-t-35 padding-body view_user_cal">
+		                             	<div id="calendar_mini" class="bg-success"></div>
+		                            </div>
+								</div>
+								
+								
+								<!-- 用户信息列表 -->
+								<div class="col-md-6">
+									<ul class="nav nav-inline view_user_nav_padding">
+										<li class="nav-item card_nav_hover">
+											<a class="nav-link active" href="#user" id="home-tab" data-toggle="tab" aria-expanded="true">User Details</a>
+										</li>
+										<li class="nav-item card_nav_hover">
+                                            <a class="nav-link" href="#tab2" id="hats-tab" data-toggle="tab">About Me</a>
+                                        </li>
+										<li class="nav-item card_nav_hover">
+                                            <a class="nav-link" href="#tab3"  id="followers" data-toggle="tab">Followers</a>
+                                        </li>
+									</ul>
+									<div id="clothing-nav-content" class="tab-content m-t-10">
+										<div role="tabpanel" class="tab-pane fade show active" id="user">
+											<table class="table" id="users">
+												<tr>
+                                                    <td>User Name</td>
+                                                    <td class="inline_edit">Micheal</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>E-mail</td>
+                                                    <td>gankunding@hotmail.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Phone Number</td>
+                                                    <td>(999)999-9999</td>
+                                               	</tr>
+                                                <tr>
+                                                    <td>Address</td>
+                                                    <td>Australia</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Created At</td>
+                                                    <td>1 month ago</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>City</td>
+                                                    <td>Nakia</td>
+                                          		</tr>
+                                          		<tr>
+                                             		<td>Pincode</td>
+                                              		<td>522522</td>
+                                            	</tr>
+											</table>
+										</div>
+										<div role="tabpanel" class="tab-pane fade" id="tab2">
+                                          	<div class="card_nav_body_padding">
+                                                <p>
+                                                 	Howdy, I'm in About Me.
+                                                </p>
+                                                <p class="text-justify">
+                                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                                                    ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+                                                    consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                                    vulputate velit esse molestie consequat. Ut wisi enim ad
+                                                    minim veniam, quis nostrud exerci tation.
+                                             	</p>
+                                        	</div>
+                                    	</div>
+                                    	<div role="tabpanel" class="tab-pane fade" id="tab3">
+                                          	<div class="card_nav_body_padding">
+                                                <p>
+                                                 	等待开发!!
+                                                </p>
+                                                
+                                        	</div>
+                                    	</div>
+									</div>
+								</div>
+							</div><!-- 第三行end -->
+							
+						</div>
+					</div>
+					
+				</div><!-- content -->
+			</div><!-- wrapper -->
+		</div>
+		
+		<script type="text/javascript" src="js/components.js"></script>
+		<script type="text/javascript" src="js/custom.js"></script>
+		<!-- global scripts end-->
+		
+
+
+		<!-- 
+		<script type="text/javascript" src="plugins/flotchart/js/jquery.flot.resize.js"></script>
+		<script type="text/javascript" src="plugins/flotchart/js/jquery.flot.stack.js"></script>
+		<script type="text/javascript" src="plugins/flotchart/js/jquery.flot.time.js"></script>
+		<script type="text/javascript" src="plugins/flotspline/js/jquery.flot.spline.min.js"></script>
+		<script type="text/javascript" src="plugins/flotchart/js/jquery.flot.categories.js"></script>
+		<script type="text/javascript" src="plugins/flotchart/js/jquery.flot.pie.js"></script>
+		<script type="text/javascript" src="plugins/raphael/js/raphael-min.js"></script>
+		<script type="text/javascript" src="plugins/d3/js/d3.min.js"></script>
+		<script type="text/javascript" src="plugins/c3/js/c3.min.js"></script>
+		<script type="text/javascript" src="plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+		<script type="text/javascript" src="plugins/jquery_newsTicker/js/newsTicker.js"></script>
+		<script type="text/javascript" src="plugins/countUp.js/js/countUp.min.js"></script>
+		<script type="text/javascript" src="plugins/slimscroll/js/jquery.slimscroll.min.js"></script>
+		<script type="text/javascript" src="plugins/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+		<script type="text/javascript" src="plugins/moment/js/moment.min.js"></script>
+		<script type="text/javascript" src="plugins/fullcalendar/js/fullcalendar.min.js"></script>
+		 -->
+		<script type="text/javascript" src="plugins/toastr/js/toastr.min.js"></script>
+		<script type="text/javascript" src="plugins/switchery/js/switchery.min.js"></script>
+		<script type="text/javascript" src="plugins/flotchart/js/jquery.flot.js"></script>
+		<script type="text/javascript" src="plugins/bootstrap_calendar/js/bootstrap_calendar.min.js"></script>
+		 
+		<!--end of plugin scripts-->
+		<script type="text/javascript" src="js/mini_calendar.js"></script>
+		<script type="text/javascript" src="js/new_dashboard.js"></script>
+		
+		<script type="text/javascript">
+			var now = new Date()
+			var hour = now.getHours()
+			if(hour > 3 && hour < 6){
+				document.getElementById("showTime").innerHTML = "凌晨好！";
+			}else if(hour < 9){
+				document.getElementById("showTime").innerHTML = "早上好！";
+			}else if(hour < 12){
+				document.getElementById("showTime").innerHTML = "上午好！";
+			}else if(hour < 14){
+				document.getElementById("showTime").innerHTML = "中午好！";
+			}else if(hour < 17){
+				document.getElementById("showTime").innerHTML = "下午好！";
+			}else if(hour < 19){
+				document.getElementById("showTime").innerHTML = "傍晚好！";
+			}else if(hour < 22){
+				document.getElementById("showTime").innerHTML = "晚上好！";
+			}else{
+				document.getElementById("showTime").innerHTML = "深夜了！早点睡！";
+			}
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				setInterval("getTime();",1000); //每隔一秒运行一次
+			})
+			//取得系统当前时间
+			function getTime(){
+				var myDate = new Date();
+				var date = myDate.toLocaleDateString();
+				var hours = myDate.getHours();
+				var minutes = myDate.getMinutes();
+				var seconds = myDate.getSeconds();
+				//$("#showDate").html(date+" "+hours+":"+minutes+":"+seconds); //将值赋给div
+			}
+		</script>
+	</body>
+</html>

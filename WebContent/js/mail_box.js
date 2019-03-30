@@ -58,10 +58,10 @@ $(document).ready(function () {
         $(".starred_mail").slideToggle();
         $("#more_items").find('.fa-angle-down,.fa-angle-up').toggleClass("fa-angle-up").toggleClass("fa-angle-down");
     });
-    $(".sent_to_mailview").on("click",function () {
-        $(location).attr('href','mail_view.html');
-        return false;
-    });
+//    $(".sent_to_mailview").on("click",function () {
+//        $(location).attr('href','mail_view.html');
+//        return false;
+//    });
     // ===================Mail Compose==================
 
     $(".mail_compose_wysi textarea").wysihtml5();

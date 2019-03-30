@@ -3,11 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
          					 http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-    <!-- shiro支持 -->
+    <!-- shiro监听器 -->
+    <!-- 
 	<listener>
 		<listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
 	</listener>
+     -->
 <!-- 添加shoir过滤器 -->
+<!-- 
 	<filter>
 		<filter-name>ShiroFilter</filter-name>
 		<filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
@@ -15,6 +18,21 @@
 			<param-name>configPath</param-name>
 			<param-value>/WEB-INF/shiro.ini</param-value>
 		</init-param>
+	</filter>
+ -->
+ 	<filter>
+		<filter-name>ShiroFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+		<!-- 该值缺省为false,表示生命周期由SpringApplicationContext管理,设置为true则表示由ServletContainer管理 -->  
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<!-- 设置spring容器filter的bean id，如果不设置则找与filter-name一致的bean-->
+	    <init-param>
+	        <param-name>targetBeanName</param-name>
+	        <param-value>shiroFilter</param-value>
+	    </init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>ShiroFilter</filter-name>

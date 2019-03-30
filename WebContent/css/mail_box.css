@@ -132,7 +132,8 @@ border:1px solid #ddd;
 	background-color: #ffc;
 }
 .mail table tr.mail-unread td {
-	font-weight: 600
+	font-weight: 600;
+	
 }
 
 .tabs .nav-tabs li a {
@@ -215,6 +216,22 @@ border:1px solid #ddd;
 .modal-header {
 	display: flex;
 	flex-direction: row-reverse;
+}
+.btn-label {
+	position: relative;
+	left: -12px;
+	display: inline-block;
+	padding: 6px 15px;
+	background: rgba(0, 0, 0, 0.15);
+	border-radius: 3px 0 0 3px;
+}
+.btn-labeled {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.btn-label {
+	border-radius: 0 0 0 0;
+	left: -15px;
 }
 /*=================Mail View================================*/
 .view_admin_img{

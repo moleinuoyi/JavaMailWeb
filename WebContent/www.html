@@ -1,206 +1,84 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
-<link type="text/css" rel="stylesheet" href="css/components.css" />
-<link type="text/css" rel="stylesheet" href="css/custom.css" />
-<!-- end of global styles-->
-
-
-<link type="text/css" rel="stylesheet" href="plugins/c3/css/c3.min.css" />
-<link type="text/css" rel="stylesheet"
-	href="plugins/toastr/css/toastr.min.css" />
-<link type="text/css" rel="stylesheet"
-	href="plugins/switchery/css/switchery.min.css" />
-<link type="text/css" rel="stylesheet" href="#" id="skin_change" />
-<!-- 
-	    <link type="text/css" rel="stylesheet" href="css/timeline2.css"/>
-	     -->
-
-
-<link type="text/css" rel="stylesheet"
-	href="plugins/jasny-bootstrap/css/jasny-bootstrap.min.css" />
-<link type="text/css" rel="stylesheet"
-	href="plugins/fullcalendar/css/fullcalendar.min.css" />
-
-<link type="text/css" rel="stylesheet" href="css/timeline2.css" />
-<link type="text/css" rel="stylesheet" href="css/calendar_custom.css" />
-<link type="text/css" rel="stylesheet" href="css/profile.css" />
-<link type="text/css" rel="stylesheet" href="css/gallery.css" />
-
-<link type="text/css" rel="stylesheet" href="css/new_dashboard.css" />
-		
-	</head>
-	<body class="body">
-		<div id="wrap">
-		    <div class="wrapper">
-		        <div id="content" class="bg-container">
-		            <div class="outer">
-		                <div class="inner bg-container">
-		                	<div class="row">
-		                            <div class="col-md-4 col-sm-6 col-12">
-		                            		
-		                            	<div class="card bg-success top_cards">
-											<div class="row icon_margin_left" style="margin-bottom:-20px">
-												<div class="col-12 icon_padd_left">
-													<div class="float-left cards_content">
-														<span class="number_val">
-															<font face="华文新魏" size="7"><div id="showTime"></div></font>
-															<font face="华文新魏" size="6">&nbsp;&nbsp;username</font><font size="1">——夕阳刻痕</font>
-		                                                </span>
-													</div>
-												</div>
-												
-											</div>
-											<div class="row icon_margin_left">
-												<div class="col-12 icon_padd_right">
-		                                            <div class="float-right cards_content">
-		                                                <font size="6"><span id="clock">
-														</span></font>
-		                                            </div>
-                                           		</div>
-											</div>
-										</div>
-		                            		
-			                        </div>
-			                        <div class="col-md-3">
-			                        	
-							<!-- 图标 -->
-								<div class="row">
-									<div class="col-md-12">
-									<!-- 图标1信件 -->
-										<div class="bg-warning top_cards">
-											<div class="row icon_margin_left">
-												<div class="col-5 icon_padd_left">
-													<div class="float-left">
-														<span class="fa-stack fa-sm">
-		                                                    <i class="fa fa-circle fa-stack-2x"></i>
-		                                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse text-warning sales_hover"></i>
-		                                                </span>
-													</div>
-												</div>
-												<div class="col-7 icon_padd_right">
-		                                            <div class="float-right cards_content">
-		                                                <span class="number_val" id="sales_count">8</span>
-		                                                <i class="fa fa-envelope-o fa-2x"></i><br/>
-		                                                <span class="card_description">信&nbsp;&nbsp;件&nbsp;&nbsp;&nbsp;&nbsp;</span>
-		                                            </div>
-                                           		</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-									<!-- 图标二通知 -->
-										<div class="bg-danger top_cards">
-											<div class="row icon_margin_left">
-												<div class="col-5 icon_padd_left">
-													<div class="float-left">
-														<span class="fa-stack fa-sm">
-		                                                    <i class="fa fa-circle fa-stack-2x"></i>
-		                                    	         	<i class="fa fa-bell-o fa-stack-1x fa-inverse text-danger sales_hover"></i>
-		                                           		</span>
-													</div>
-												</div>
-												<div class="col-7 icon_padd_right">
-		                                            <div class="float-right cards_content">
-		                                                <span class="number_val" id="sales_count">9</span>
-		                                                <i class="fa fa-bell-o fa-2x"></i><br/>
-		                                                <span class="card_description">通&nbsp;&nbsp;知&nbsp;&nbsp;&nbsp;&nbsp;</span>
-		                                            </div>
-                                           		</div>
-											</div>
-										</div>
-									</div>
-								</div>
-			                        </div>
-			                        
-			                        
-		                   	</div>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		
-		<script type="text/javascript" src="js/components.js"></script>
-		<script type="text/javascript" src="js/custom.js"></script>
-		<!--End of Global scripts-->
-		
-		<script type="text/javascript" src="plugins/circliful/js/jquery.circliful.min.js"></script>
-		<script type="text/javascript" src="plugins/bootstrapvalidator/js/bootstrapValidator.min.js"></script>
-		<script type="text/javascript" src="plugins/countUp.js/js/countUp.min.js"></script>
-		<script type="text/javascript" src="plugins/swiper/js/swiper.min.js"></script>
-		<script type="text/javascript" src="plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-		<script type="text/javascript" src="plugins/switchery/js/switchery.min.js"></script>
-		
-		
-		<script type="text/javascript" src="js/widget1.js"></script>
-		
-		
-		<script type="text/javascript">
-		//取得系统当前时间
-			function getTime(){
-				var myDate = new Date();
-				var hours = myDate.getHours();
-				var minutes = myDate.getMinutes();
-				var seconds = myDate.getSeconds();
-				
-				if(hours == 0){
-		            hours = '00';
-		        }else if(hours < 10){
-		            hours = '0' + hours;
-		        }else{
-		            hours = hours;
-		        }
-				if(minutes == 0){
-					minutes = '00';
-		        }else if(minutes < 10){
-		        	minutes = '0' + minutes;
-		        }else{
-		        	minutes = minutes;
-		        }
-				if(seconds == 0){
-					seconds = '00';
-		        }else if(seconds < 10){
-		        	seconds = '0' + seconds;
-		        }else{
-		        	seconds = seconds;
-		        }
-				
-				document.getElementById("clock").innerHTML = hours+":"+minutes+":"+seconds+"&nbsp;&nbsp;&nbsp;&nbsp;";
-			}
-			window.setInterval("getTime();",1000); //每隔一秒运行一次
-		</script>
-		<script type="text/javascript">
-			window.onload=function()
-	        {
-				getTime();
-	        }
-			var now = new Date()
-			var hour = now.getHours();
-			if(hour > 3 && hour < 6){
-				document.getElementById("showTime").innerHTML = "凌晨好！";
-			}else if(hour < 9){
-				document.getElementById("showTime").innerHTML = "早上好！";
-			}else if(hour < 12){
-				document.getElementById("showTime").innerHTML = "上午好！";
-			}else if(hour < 14){
-				document.getElementById("showTime").innerHTML = "中午好！";
-			}else if(hour < 17){
-				document.getElementById("showTime").innerHTML = "下午好！";
-			}else if(hour < 19){
-				document.getElementById("showTime").innerHTML = "傍晚好！";
-			}else if(hour < 22){
-				document.getElementById("showTime").innerHTML = "晚上好！";
-			}else{
-				document.getElementById("showTime").innerHTML = "深夜了！早点睡！";
-			}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ajax请求</title>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+    </head>
+    <body>
+    111
+        <input type="text" name="city" placeholder="请输入城市">
+        <button onclick="getWeather()">查询天气</button>
+        <span id="city"></span>
+        <p class="high"></p>
+       	<p class="low"></p>
+        <p class="date"></p>
+        <p class="type"></p>
+        <!-- 
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hstpnBlGIHROCXE5ZVt0syqhmMoZwXGN&callback=showLocation"></script>  
+         -->
+		<script type="text/javascript">  
+		//function showLocation(data) {
+		//	alert(data);
+		//}
 			
 		</script>
-		
-	</body>
+        <script>
+            // Ajax请求：一般在刷新页面中的局部数据时，会使用ajax请求。该请求不会去重新刷新或请求这个页面中的所有数据，而只是动态的修改一部分数据。
+            function getWeather() {
+                // 通过ajax向天气接口发送请求
+                // $.get('url', '请求成功之后的回调函数');
+                // $.post('url', 'POST参数',  '请求成功之后的回调函数');
+                $.ajax({
+                    // 请求地址
+                    // val()获取输入框中的内容。
+                    url: 'http://wthrcdn.etouch.cn/weather_mini?city=珠海',
+ 
+                    // 请求类型：GET/POST
+                    type: 'GET',
+ 
+                    // 请求参数，是一个字符串。
+                    // data: '',
+ 
+                    // 指定服务器返回的数据类型
+                    dataType: 'json',
+ 
+                    // 指定请求失败的回调函数
+                    error: function (data, status) {
+                        console.log('请求失败：', status, data);
+                    },
+ 
+                    // 请求成功的回调函数
+                    success: function (data, status) {
+                        // 请求成功，得到json数据，解析json数据，将数据展示到页面中。
+                        //console.log('请求成功：', data);
+                        
+                        var city = data.data.city;
+                        var high = data.data.forecast[0].high;
+                        high = high.substring(3,high.length-1);
+                        //high = high.length;
+                        var low = data.data.forecast[0].low;
+                        low = low.substring(3);
+                        var date = data.data.forecast[0].date;
+                        date = date.substring(3);
+                        var type = data.data.forecast[2].type;
+                       // var weather_data = result['weather_data'][0];
+                       // var weather = weather_data['weather'];
+                       // var wind = weather_data['wind'];
+                       // var tem = weather_data['temperature'];
+ 
+                        // 通过js给p标签赋值
+                        $('#city').text("城市："+city);
+                        $('.high').text("最高温度："+high);
+                        $('.low').text("最低温度："+low);
+                        $('.date').text("日期："+date);
+                        $('.type').text("类型："+type);
+                    },
+ 
+                    // 发起请求的方式：同步(false)还是异步(true)
+                    async: true
+                });
+            }
+        </script>
+    </body>
 </html>

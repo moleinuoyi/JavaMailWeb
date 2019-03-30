@@ -1,57 +1,70 @@
 package com.zwt.dao.impl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import com.zwt.dao.UserDao;
 import com.zwt.modle.User;
 
-public class UserDaoImpl extends HibernateDaoSupport{
-	public User getByUserName(Connection con,String userName) throws SQLException {
-		User resultUser = null;
-		String sql = "select * from t_user where userNamer=?";
-		PreparedStatement pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, userName);
-		ResultSet rs = pstmt.executeQuery();
-		if(rs.next()) {
-			resultUser = new User();
-			resultUser.setId(rs.getInt("id"));
-			resultUser.setUsername(rs.getString("userNamer"));
-			resultUser.setPassword(rs.getString("password"));
+public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
+
+	@Override
+	public boolean insertUser(User user) {
+		// TODO Auto-generated method stub
+		try {
+		Session session = this.getSessionFactory().openSession();
+		Transaction tx = session.beginTransaction();
+		session.save(user);
+		tx.commit();
+		if(session.isOpen()) {
+			session.close();
 		}
-		return resultUser;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public User selectUserByMailName(String mailName) {
+		// TODO Auto-generated method stub
+		Session session = this.getSessionFactory().openSession();
+		Transaction tx = session.beginTransaction();
 		
+		String queryString = "From User where mailName='"+mailName+"'";
+		System.out.println(queryString);
+		List<?> results = session.createQuery(queryString).list();
+		if(results.size() == 0) {
+			System.out.println("NULL");
+			return null;
+		}
+		User userresults = (User)results.get(0);
+		tx.commit();
+		if(session.isOpen()) {
+			session.close();
+		}
+		return userresults;
 	}
 
-	public Set<String> getRoles(Connection con, String userName) throws SQLException {
+	@Override
+	public boolean updateUser(User user) {
 		// TODO Auto-generated method stub
-		Set<String> roles = new HashSet<String>();
-		String sql = "select * from t_user u,t_role r where u.roleId=r.id and u.userNamer= ?";
-		PreparedStatement pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, userName);
-		ResultSet rs = pstmt.executeQuery();
-		while(rs.next()) {
-			roles.add(rs.getString("roleName"));
+		try {
+			Session session = this.getSessionFactory().openSession();
+			Transaction tx = session.beginTransaction();
+			session.update(user);
+			tx.commit();
+			if(session.isOpen()) {
+				session.close();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
 		}
-		return roles;
+		return true;
 	}
-
-	public Set<String> getPermissions(Connection con, String userName) throws SQLException {
-		// TODO Auto-generated method stub
-		Set<String> permissions = new HashSet<String>();
-		String sql = "select * from t_user u,t_role r,t_parmissiom p where u.roleId=r.id and p.roleId=r.id and u.userNamer= ?";
-		PreparedStatement pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, userName);
-		ResultSet rs = pstmt.executeQuery();
-		while(rs.next()) {
-			permissions.add(rs.getString("permissionName"));
-		}
-		return permissions;
-	}
+	
 }

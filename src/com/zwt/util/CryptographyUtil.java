@@ -24,7 +24,7 @@ public class CryptographyUtil {
 		return new Md5Hash(str, salt, hashIterations).toString();
 	}
 	public static void main(String[] args) {
-		String str = "123";
+		String str = "123321";
 		String salt = "zwt.com";
 		System.out.println("Base64º”√‹:"+encBase64(str));
 		System.out.println("Base64Ω‚√‹:"+decBase64("SSBMb3ZlIFpKSg=="));

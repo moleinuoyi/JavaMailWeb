@@ -14,8 +14,8 @@
 	<link type="text/css" rel="stylesheet" href="css/mail_box.css"/>
 	<!-- style="background-color:#f3f3f4;" -->
 </head>
-<body class="body">
-	<div id="wrap">
+<body class="body ">
+	<div id="wrap" style="background-color:#f3f3f4;">
 		<div class="wrapper">
 			<div id="content" class="bg-container" style="background-color:#f3f3f4;">
 				<div class="outer">
@@ -24,7 +24,230 @@
 							<div class="col-md-12 ">
 								<div class="card mail media_max_991">
                                 	<div class="card-header bg-white">
-                                	
+                                		<div class="row">
+                                			<div class="col-md-8 col-12 m-t-10 dropdown_list_hover">
+                                				<div class="btn-group float-left table-bordereds">
+                                					
+                                					<label class="custom-control custom-checkbox mr-0 mb-0 ">
+	                                                    <input type="checkbox" class="custom-control-input select-all">
+	                                                    <span class="custom-control-indicator"></span>
+	                                                    	全选
+	                                                </label>
+                                					 
+	                                                
+                                				</div>
+                                				
+	                                            <button type="button" class="btn btn-labeled btn-primary" id="refresh_inbox">
+                                                   	<span class="btn-label">
+                                                     	<i class="fa fa-refresh fa-spin"></i>
+                                                   	</span>
+                                                   	刷新
+                                                </button>
+	                                            <button type="button" class="btn btn-labeled btn-warning">
+                                                   	<span class="btn-label">
+                                                     	<i class="fa fa-trash-o"></i>
+                                                   	</span>
+                                                   	删除
+                                                </button>
+                                                <button type="button" class="btn btn-labeled btn-danger">
+                                                   	<span class="btn-label">
+                                                     	<i class="fa fa-trash-o"></i>
+                                                   	</span>
+                                                   	彻底删除
+                                                </button>
+	                                            <span class="dropdown">
+                                                  	<button class="btn btn-mint dropdown-toggle" type="button" data-toggle="dropdown" >
+                                                    	标记为
+                                                   	</button>
+                                                    <span class="dropdown-menu" aria-labelledby="about-us1">
+                                                   		<a class="dropdown-item" href="#">已发送</a>
+                                                     	<a class="dropdown-item" href="#">已读文件</a>
+                                                      	<a class="dropdown-item" href="#">未读文件</a>
+                                                      	<hr style="margin-top:2px;margin-bottom:2px;"/>
+                                                      	<a class="dropdown-item" href="#">新建文件夹</a>
+                                                  	</span>
+                                              	</span>
+                                              	<span class="dropdown">
+                                                  	<button class="btn btn-mint dropdown-toggle" type="button" data-toggle="dropdown" >
+                                                    	移动到
+                                                   	</button>
+                                                    <span class="dropdown-menu" aria-labelledby="about-us1">
+                                                   		<a class="dropdown-item" href="#">收信箱</a>
+                                                     	<a class="dropdown-item" href="#">发信箱</a>
+                                                      	<a class="dropdown-item" href="#">垃圾箱</a>
+                                                      	<hr style="margin-top:2px;margin-bottom:2px;"/>
+                                                      	<a class="dropdown-item" href="#">新建文件夹</a>
+                                                  	</span>
+                                                  	
+                                              	</span>
+                                			</div>
+                                			<!-- 头部右边搜索框 -->
+                                			<div class="col-md-4 col-12">
+	                                            <div class="input-group margin bottom">
+	                                                <input type="text" class="form-control inbox_search_height m-t-10" placeholder="Search">
+	                                                <span class="input-group-btn">
+	                                                <button type="button" class="btn btn-mint inbox_search_height m-t-10">Search</button>
+	                                            </span>
+	                                            </div>
+	                                        </div>
+                                		</div>
+                                	</div>
+                                	<!-- 第二行分类菜单 -->
+                                	<div class="card-block m-t-25 p-d-0">
+                                		<div class="tabs tabs-bordered tabs-icons">
+                                			<ul class="nav nav-tabs">
+	                                            <li class="nav-item active" id="primary2">
+	                                                <a href="#primary" class="nav-link" data-toggle="tab"
+	                                                   aria-expanded="true"><i class="fa fa-inbox"></i> Primary</a>
+	                                            </li>
+	                                            <li class="nav-item" id="social2">
+	                                                <a href="#social" class="nav-link" data-toggle="tab"
+	                                                   aria-expanded="false"><i class="fa fa-group"></i> Social</a>
+	                                            </li>
+	                                            <li class="nav-item" id="promotions2">
+	                                                <a href="#promotions" class="nav-link" data-toggle="tab"
+	                                                   aria-expanded="false"><i class="fa fa-star"></i> Promotions</a>
+	                                            </li>
+	                                        </ul>
+	                                        <div class="tab-content">
+	                                        	<div class="tab-pane table-responsive reset padding-all fade active show" id="primary">
+	                                        		<table class="table">
+                                                    <tbody>
+                                                    	<tr class="mail-unread">
+                                                    		<td>
+	                                                            <div class="checker m-l-20">
+	                                                                <label class="custom-control custom-checkbox">
+	                                                                    <input name="checkbox" type="checkbox"
+	                                                                           class="custom-control-input ">
+	                                                                    <span class="custom-control-indicator"></span>
+	                                                                </label>
+	                                                            </div>
+	                                                        </td>
+	                                                        <td><i class="fa fa-star"></i></td>
+	                                                        <td class="sent_to_mailview">John Doe</td>
+	                                                        <td class="sent_to_mailview">Hello friend</td>
+	                                                        <td class="sent_to_mailview"></td>
+	                                                        <td class="sent_to_mailview">11/04/2014 14:35 AM</td>
+                                                    	</tr>
+                                                    	<tr class="mail-unread">
+	                                                        <td>
+	                                                            <div class="checker m-l-20">
+	                                                                <label class="custom-control custom-checkbox">
+	                                                                    <input name="checkbox" type="checkbox"
+	                                                                           class="custom-control-input ">
+	                                                                    <span class="custom-control-indicator"></span>
+	                                                                </label>
+	                                                            </div>
+	                                                        </td>
+	                                                        <td><i class="fa fa-star starred"></i></td>
+	                                                        <td class="sent_to_mailview">Office</td>
+	                                                        <td class="sent_to_mailview">Reminder about the Meeting for Today</td>
+	                                                        <td class="sent_to_mailview"></td>
+	                                                        <td class="sent_to_mailview">11/04/2014 14:35 AM</td>
+	                                                    </tr>
+	                                                    <tr class="mail-unread">
+	                                                        <td>
+	                                                            <div class="checker m-l-20">
+	                                                                <label class="custom-control custom-checkbox">
+	                                                                    <input name="checkbox" type="checkbox"
+	                                                                           class="custom-control-input ">
+	                                                                    <span class="custom-control-indicator"></span>
+	                                                                </label>
+	                                                            </div>
+	                                                        </td>
+	                                                        <td><i class="fa fa-star text-warning"></i></td>
+	                                                        <td class="sent_to_mailview">John Cena</td>
+	                                                        <td class="sent_to_mailview">Please confirm your registration</td>
+	                                                        <td class="sent_to_mailview"><i class="fa fa-paperclip"></i></td>
+	                                                        <td class="sent_to_mailview">11/04/2014 14:35 AM</td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                        <td>
+	                                                            <div class="checker m-l-20">
+	                                                                <label class="custom-control custom-checkbox">
+	                                                                    <input name="checkbox" type="checkbox"
+	                                                                           class="custom-control-input ">
+	                                                                    <span class="custom-control-indicator"></span>
+	                                                                </label>
+	                                                            </div>
+	                                                        </td>
+	                                                        <td><i class="fa fa-star text-warning"></i></td>
+	                                                        <td class="sent_to_mailview">Jonathan Fox</td>
+	                                                        <td class="sent_to_mailview">Dinner tonight at Tina's</td>
+	                                                        <td class="sent_to_mailview"></td>
+	                                                        <td class="sent_to_mailview">11/04/2014 14:35 AM</td>
+	                                                    </tr>
+                                                    	
+                                                    </tbody>
+                                                    </table>
+                                                    <center>
+																		首页 上一页
+																		下一页 尾页
+													</center>
+	                                        	</div>
+	                                        	<!-- 社会公众信息列表 -->
+	                                        	<div class="tab-pane table-responsive reset padding-all fade" id="social">
+	                                                <table class="table">
+	                                                <tbody>
+	                                                	<tr class="mail-unread">
+	                                                        <td>
+	                                                            <div class="checker m-l-20">
+	                                                                <label class="custom-control custom-checkbox">
+	                                                                    <input name="checkbox" type="checkbox"
+	                                                                           class="custom-control-input ">
+	                                                                    <span class="custom-control-indicator"></span>
+	                                                                </label>
+	                                                            </div>
+	                                                        </td>
+	                                                        <td><i class="fa fa-star"></i></td>
+	                                                        <td class="sent_to_mailview">Facebook</td>
+	                                                        <td class="sent_to_mailview">18 new firend requests</td>
+	                                                        <td class="sent_to_mailview"></td>
+	                                                        <td class="sent_to_mailview">11/04/2014 14:35 AM</td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                        <td>
+	                                                            <div class="checker m-l-20">
+	                                                                <label class="custom-control custom-checkbox">
+	                                                                    <input name="checkbox" type="checkbox"
+	                                                                           class="custom-control-input ">
+	                                                                    <span class="custom-control-indicator"></span>
+	                                                                </label>
+	                                                            </div>
+	                                                        </td>
+	                                                        <td><i class="fa fa-star"></i></td>
+	                                                        <td class="sent_to_mailview">Twitter</td>
+	                                                        <td class="sent_to_mailview">Lorem ipsum solet mit dolor.</td>
+	                                                        <td class="sent_to_mailview"></td>
+	                                                        <td class="sent_to_mailview">11/04/2014 14:35 AM</td>
+	                                                    </tr>
+	                                                </tbody>
+	                                                </table>
+                                                </div>
+                                                <div class="tab-pane table-responsive reset padding-all fade" id="promotions">
+                                                	<table class="table">
+                                                    <tbody>
+                                                    	<tr class="mail-unread">
+	                                                        <td>
+	                                                            <div class="checker m-l-20">
+	                                                                <label class="custom-control custom-checkbox">
+	                                                                    <input name="checkbox" type="checkbox"
+	                                                                           class="custom-control-input ">
+	                                                                    <span class="custom-control-indicator"></span>
+	                                                                </label>
+	                                                            </div>
+	                                                        </td>
+	                                                        <td><i class="fa fa-star"></i></td>
+	                                                        <td class="sent_to_mailview">Ebay</td>
+	                                                        <td class="sent_to_mailview">Qonsequer novo dolores.</td>
+	                                                        <td class="sent_to_mailview"></td>
+	                                                        <td class="sent_to_mailview">11/04/2014 14:35 AM</td>
+	                                                    </tr>
+                                                    </tbody>
+                                                    </table>
+                                                </div>
+	                                        </div>
+                                		</div>
                                 	</div>
                                 </div>
 							</div>

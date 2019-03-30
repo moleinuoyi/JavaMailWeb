@@ -8,9 +8,21 @@
 			<generator class="native" />
 		</id>
 		
-		<property name="username" column="userName"/>
+		<property name="mailName" column="mailName"/>
+		<property name="userName" column="userName"/>
+		<property name="userImage" column="userImage"/>
 		<property name="password" column="password"/>
+		<property name="sex" column="sex"/>
+		<property name="age" column="age"/>
+		<property name="brithdy" column="brithdy"/>
+		<property name="phone" column="phone"/>
+		<property name="registerTime" column="registerTime"/>
+		<property name="lastLoadTime" column="lastLoadTime"/>
+		<property name="discription" column="discription"/>
+		<property name="quession" column="quession"/>
+		<property name="answer" column="answer"/>
 		<property name="roleId" column="roleId"/>
+		<property name="registeStatu" column="registeStatu"/>
 		
 	</class>
 </hibernate-mapping>

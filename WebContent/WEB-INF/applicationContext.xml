@@ -11,7 +11,7 @@
  	       http://www.springframework.org/schema/tx 
  	       http://www.springframework.org/schema/tx/spring-tx.xsd
  	       http://www.springframework.org/schema/aop 
- 	      http://www.springframework.org/schema/aop/spring-aop.xsd">
+ 	       http://www.springframework.org/schema/aop/spring-aop.xsd">
  	 <!-- 
  	<bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
@@ -46,7 +46,6 @@
 				</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
-				
 				<prop key="hibernate.cache.use_second_level_cache">true</prop>
 				<prop key="hibernate.cache.use_query_cache">true</prop> 
                 <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>  
@@ -58,6 +57,10 @@
 				<value>com/zwt/modle/User.hbm.xml</value>
 				<value>com/zwt/modle/Role.hbm.xml</value>
 				<value>com/zwt/modle/Permission.hbm.xml</value>
+				<value>com/zwt/modle/Mail_Receive.hbm.xml</value>
+				<value>com/zwt/modle/Mail_Send.hbm.xml</value>
+				<value>com/zwt/modle/Status.hbm.xml</value>
+				<value>com/zwt/modle/Local.hbm.xml</value>
 			</list>
 		</property> 
 	</bean>
@@ -84,17 +87,87 @@
 	<bean id="UserDAO" class="com.zwt.dao.impl.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"/> 
 	</bean>
-	<!-- 
+	<bean id="MailDAO" class="com.zwt.dao.impl.MailDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/> 
+	</bean>
+	 
 	<bean id="UserService" class="com.zwt.service.impl.UserServiceImpl">
-		<property name="userDAO">
+		<property name="userdao">
 			<ref bean="UserDAO"/>
 		</property>
 	</bean>
-	 -->
+	<bean id="MailService" class="com.zwt.service.impl.MailServiceImpl">
+		<property name="maildao">
+			<ref bean="MailDAO"/>
+		</property>
+	</bean>
 	
 	<!-- 配置Action -->
 	<bean id="loginAction" class="com.zwt.controler.LoginAction">
-		
+		<property name="userservice">
+			<ref bean="UserService"/>
+		</property>
+		<property name="mailservice">
+			<ref bean="MailService"/>
+		</property>
+	</bean>
+	<bean id="registerAction" class="com.zwt.controler.RegisteAction">
+		<property name="userservice">
+			<ref bean="UserService"/>
+		</property>
+	</bean>
+	<bean id="sendMailAction" class="com.zwt.controler.SendMailAction">
+		<property name="mailservice">
+			<ref bean="MailService"/>
+		</property>
+	</bean>
+	<bean id="receiveMailAction" class="com.zwt.controler.ReadMailAction">
+		<property name="mailservice">
+			<ref bean="MailService"/>
+		</property>
+	</bean>
+	<bean id="lookMailAction" class="com.zwt.controler.LookMailAction">
+		<property name="mailservice">
+			<ref bean="MailService"/>
+		</property>
 	</bean>
 	
+	
+	
+	 <!-- shiro管理 -->
+	<!-- 自定义Realm -->
+	<bean id="myRealm" class="com.zwt.realm.ShiroRealm">
+		<property name="userdao">
+			<ref bean="UserDAO"/>
+		</property>
+	</bean>
+	<!-- 安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
+  	  	<property name="realm" ref="myRealm"/>  
+	</bean>
+	<!-- Shiro过滤器 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
+	    <!-- Shiro的核心安全接口,这个属性是必须的 -->  
+	    <property name="securityManager" ref="securityManager"/>
+	    <!-- 身份认证失败，则跳转到登录页面的配置 -->  
+	    <property name="loginUrl" value="${pageContext.request.contextPath }/unlogin"/>
+	    <!-- 权限认证失败，则跳转到指定页面 -->  
+	    <property name="unauthorizedUrl" value="${pageContext.request.contextPath }/unauthorized"/>  
+	    <!-- Shiro连接约束配置,即过滤链的定义 -->  
+	    <property name="filterChainDefinitions">  
+	        <value>  
+	            /login.jsp=anon
+				/index.jsp=authc
+				/student=roles[teacher]
+				/teacher=perms["user:create"]
+	        </value>  
+	    </property>
+	</bean>
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->  
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>  
+	<!-- 开启Shiro注解 -->
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>  
+  		<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">  
+  	  	<property name="securityManager" ref="securityManager"/>  
+    </bean>    
 </beans>

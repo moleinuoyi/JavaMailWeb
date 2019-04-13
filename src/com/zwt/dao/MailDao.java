@@ -17,8 +17,9 @@ public interface MailDao {
 	public int selectMailAllCount(String mailName);
 	public List<Mail_Receive> selectMailByMailName_Commons_FenYe(String userName,Page page,int localid);
 	
-	public boolean updateMail_ReceiveStayus(Mail_Receive mail);
-	
 	public List<Local> selectMail_Local(String userId);
 	public List<Status> selectMail_Status(String userId);
+	
+	public boolean updateMail_Receive(Mail_Receive mail);
+	public boolean deleteMail_Receive(Mail_Receive mail);
 }

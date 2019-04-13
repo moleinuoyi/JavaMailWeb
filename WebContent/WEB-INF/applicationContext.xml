@@ -131,6 +131,11 @@
 			<ref bean="MailService"/>
 		</property>
 	</bean>
+	<bean id="deleteMailAction" class="com.zwt.controler.DeleteMailAction">
+		<property name="mailservice">
+			<ref bean="MailService"/>
+		</property>
+	</bean>
 	
 	
 	

@@ -17,8 +17,11 @@ public interface MailService {
 	public List<Mail_Receive> findMailByUserName(String userName);
 	public Result findMailByUserName_Commons_FenYe(String mailName,Page page,int localid);
 	
-	public boolean replaceMail_ReceiveStatus(Mail_Receive mail);
-	
 	public List<Local> findMailLocalByUserId(String userId);
 	public List<Status> findMailStatusByUserId(String userId);
+	
+	public boolean replaceMail_ReceiveStatus(Mail_Receive mail);
+	public boolean replaceMail_ReceiveLocal(Mail_Receive mail);
+	
+	public boolean removeMail_Receive(Mail_Receive mail);
 }

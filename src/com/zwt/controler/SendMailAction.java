@@ -92,5 +92,26 @@ public class SendMailAction extends ActionSupport{
 		
 		return SUCCESS;
 	}
-	
+	public String saveDraft() throws Exception {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		
+		User user = (User)session.getAttribute("user");
+		Mail_Send mail_s = new Mail_Send();
+		
+		Date now = new Date();
+		java.sql.Date sendTime = new java.sql.Date(now.getTime());
+		Mail_Receive mail_r = new Mail_Receive();
+		mail_r.setMailTitle(title);
+		mail_r.setMailContent(content);
+		mail_r.setSendPeople(user.getMailName());
+		mail_r.setReceivePeople(sendTo);
+		mail_r.setDateTime(sendTime);
+		mail_r.setNature("private");
+		mail_r.setIsStar(0);
+		mail_r.setStatus(3);
+		mail_r.setLocal(3);
+		mailservice.addMail_Receive(mail_r);
+		return SUCCESS;
+	}
 }

@@ -37,10 +37,20 @@
 		<action name="sendmail" class="sendMailAction" method="execute">
 			<result name="success">/sendSuccess.jsp</result>
 		</action>
+		<!-- 保存为草稿 -->
+		<action name="savemailtodraft" class="sendMailAction" method="saveDraft">
+			<result name="success" type="chain">${pageContext.request.contextPath }/receivemail.action</result>
+		</action>
+		<!-- 删除邮件放到垃圾箱 -->
+		<action name="deletemailtorubbit" class="deleteMailAction" method="execute">
+			<result name="success"></result>
+		</action>
+		
 		<!-- 接收邮件 -->
 		<action name="receivemail" class="receiveMailAction" method="execute">
 			<result name="success">/mail_inbox.jsp</result>
 		</action>
+		
 		<!-- 接收邮件commons -->
 		<action name="receivemailcommons" class="receiveMailAction" method="mailcommons">
 			<result name="success">/mail_inbox_commons.jsp</result>

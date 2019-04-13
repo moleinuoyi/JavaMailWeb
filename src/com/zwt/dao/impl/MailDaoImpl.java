@@ -143,7 +143,7 @@ public class MailDaoImpl  extends HibernateDaoSupport implements MailDao{
 	}
 
 	@Override
-	public boolean updateMail_ReceiveStayus(Mail_Receive mail) {
+	public boolean updateMail_Receive(Mail_Receive mail) {
 		// TODO Auto-generated method stub
 		Session session = this.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
@@ -152,7 +152,20 @@ public class MailDaoImpl  extends HibernateDaoSupport implements MailDao{
 		if(session.isOpen()) {
 			session.close();
 		}
-		return false;
+		return true;
 	}
+
+	@Override
+	public boolean deleteMail_Receive(Mail_Receive mail) {
+		Session session = this.getSessionFactory().openSession();
+		Transaction tx = session.beginTransaction();
+		session.delete(mail);
+		tx.commit();
+		if(session.isOpen()) {
+			session.close();
+		}
+		return true;
+	}
+
 
 }

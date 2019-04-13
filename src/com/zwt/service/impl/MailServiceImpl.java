@@ -70,7 +70,12 @@ public class MailServiceImpl implements MailService {
 	@Override
 	public boolean replaceMail_ReceiveStatus(Mail_Receive mail) {
 		// TODO Auto-generated method stub
-		return maildao.updateMail_ReceiveStayus(mail);
+		return maildao.updateMail_Receive(mail);
+	}
+	@Override
+	public boolean replaceMail_ReceiveLocal(Mail_Receive mail) {
+		// TODO Auto-generated method stub
+		return maildao.updateMail_Receive(mail);
 	}
 
 }

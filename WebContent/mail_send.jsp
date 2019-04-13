@@ -93,7 +93,7 @@
 		        document.sendMail.submit();
 		    }
 		    function savedraft() {
-		        document.sendMail.action = "{:U('Home/Payment/doalipay')}";
+		        document.sendMail.action = "${pageContext.request.contextPath }/savemailtodraft.action";
 		        document.sendMail.submit();
 		    }
 </script>
